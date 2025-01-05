@@ -1,0 +1,9 @@
+[
+  { "day": "Monday", "menu": "Oatmeal for breakfast, Salad for lunch, Spaghetti for dinner" },
+  { "day": "Tuesday", "menu": "Smoothie for breakfast, Tacos for lunch, Grilled fish for dinner" },
+  { "day": "Wednesday", "menu": "Bagels for breakfast, Soup for lunch, Steak for dinner" },
+  { "day": "Thursday", "menu": "Cereal for breakfast, Pizza for lunch, Stir-fry for dinner" },
+  { "day": "Friday", "menu": "Eggs for breakfast, Burgers for lunch, Sushi for dinner" },
+  { "day": "Saturday", "menu": "French toast for breakfast, Pasta for lunch, BBQ for dinner" }
+  { "day": "Sunday", "menu": "Pancakes for breakfast, Sandwiches for lunch, Roast chicken for dinner" },
+]
