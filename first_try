@@ -1,9 +1,14 @@
-[
-  { "day": "Monday", "menu": "Oatmeal for breakfast, Salad for lunch, Spaghetti for dinner" },
-  { "day": "Tuesday", "menu": "Smoothie for breakfast, Tacos for lunch, Grilled fish for dinner" },
-  { "day": "Wednesday", "menu": "Bagels for breakfast, Soup for lunch, Steak for dinner" },
-  { "day": "Thursday", "menu": "Cereal for breakfast, Pizza for lunch, Stir-fry for dinner" },
-  { "day": "Friday", "menu": "Eggs for breakfast, Burgers for lunch, Sushi for dinner" },
-  { "day": "Saturday", "menu": "French toast for breakfast, Pasta for lunch, BBQ for dinner" }
-  { "day": "Sunday", "menu": "Pancakes for breakfast, Sandwiches for lunch, Roast chicken for dinner" },
-]
+<div id="menu"></div>
+<script>
+  const menu = {
+    Sunday: "Pancakes, Roast Chicken",
+    Monday: "Oatmeal, Salad, Spaghetti",
+    Tuesday: "Smoothie, Tacos, Grilled Fish",
+    Wednesday: "Bagels, Soup, Steak",
+    Thursday: "Cereal, Pizza, Stir-Fry",
+    Friday: "Eggs, Burgers, Sushi",
+    Saturday: "French Toast, BBQ"
+  };
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+  document.getElementById("menu").innerText = menu[today] || "Menu not available";
+</script>
