@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Menu</title>
+  <title>🍽️ Daily Menu 🍽️</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Courier Prime';
       text-align: center;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f9;
+      background-color:rgba(165, 160, 106, 0.27);
     }
     #menu {
-      font-size: 24px;
+      font-size: 16px;
       margin-top: 50px;
     }
   </style>
@@ -23,13 +23,13 @@
   <div id="menu"></div>
   <script>
     const menu = {
-      Sunday: "Pancakes, Roast Chicken",
       Monday: "Oatmeal, Salad, Spaghetti",
       Tuesday: "Smoothie, Tacos, Grilled Fish",
       Wednesday: "Bagels, Soup, Steak",
       Thursday: "Cereal, Pizza, Stir-Fry",
       Friday: "Eggs, Burgers, Sushi",
-      Saturday: "French Toast, BBQ"
+      Saturday: "French Toast, BBQ",
+      Sunday: "Pancakes, Roast Chicken"
     };
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
     document.getElementById("menu").innerText = menu[today] || "Menu not available for today.";
