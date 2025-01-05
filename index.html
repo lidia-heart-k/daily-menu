@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Courier Prime', monospace;
@@ -12,27 +13,98 @@
       padding: 0;
       background-color: rgba(165, 160, 106, 0.27);
     }
-    #menu {
-      font-size: 16px;
-      margin-top: 50px;
+    h1 {
+      margin: 20px 0;
+    }
+    #menu-container {
+      display: flex;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      scroll-snap-type: x mandatory; /* Snap scrolling */
+      margin: 20px;
+      padding: 10px 0;
+      gap: 10px;
+    }
+    .menu-item {
+      flex: 0 0 auto; /* Prevent shrinking */
+      scroll-snap-align: center; /* Snap items to the center */
+      background-color: white;
+      border: 2px solid #aaa;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      width: 250px;
+    }
+    .menu-item h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .menu-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .menu-item ul li {
+      margin-bottom: 5px;
     }
   </style>
 </head>
 <body>
   <h1>🍽️ Today's Menu 🍽️</h1>
-  <div id="menu"></div>
+  <div id="menu-container"></div>
   <script>
     const menu = {
-      Monday: "Oatmeal, Salad, Spaghetti",
-      Tuesday: "Smoothie, Tacos, Grilled Fish",
-      Wednesday: "Bagels, Soup, Steak",
-      Thursday: "Cereal, Pizza, Stir-Fry",
-      Friday: "Eggs, Burgers, Sushi",
-      Saturday: "French Toast, BBQ",
-      Sunday: "Pancakes, Roast Chicken"
+      Monday: {
+        breakfast: "Oatmeal",
+        lunch: "Salad",
+        dinner: "Spaghetti"
+      },
+      Tuesday: {
+        breakfast: "Smoothie",
+        lunch: "Tacos",
+        dinner: "Grilled Fish"
+      },
+      Wednesday: {
+        breakfast: "Bagels",
+        lunch: "Soup",
+        dinner: "Steak"
+      },
+      Thursday: {
+        breakfast: "Cereal",
+        lunch: "Pizza",
+        dinner: "Stir-Fry"
+      },
+      Friday: {
+        breakfast: "Eggs",
+        lunch: "Burgers",
+        dinner: "Sushi"
+      },
+      Saturday: {
+        breakfast: "French Toast",
+        lunch: "BBQ",
+        dinner: "Pasta"
+      },
+      Sunday: {
+        breakfast: "Pancakes",
+        lunch: "Sandwiches",
+        dinner: "Roast Chicken"
+      }
     };
+
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-    document.getElementById("menu").innerText = menu[today] || "Menu not available for today.";
+    const todayMenu = menu[today] || {};
+    const container = document.getElementById('menu-container');
+
+    for (const [meal, items] of Object.entries(todayMenu)) {
+      const menuItem = document.createElement('div');
+      menuItem.className = 'menu-item';
+      menuItem.innerHTML = `
+        <h2>${meal.charAt(0).toUpperCase() + meal.slice(1)}</h2>
+        <ul>
+          <li>${items}</li>
+        </ul>
+      `;
+      container.appendChild(menuItem);
+    }
   </script>
 </body>
 </html>
